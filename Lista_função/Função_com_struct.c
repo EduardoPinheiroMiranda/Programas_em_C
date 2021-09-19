@@ -61,9 +61,9 @@ int main(){
                             printf("\nCadastro concluido com sucesso\n");
                             printf("--------------Ficha de Professores--------------\n");
                             for( int i=0;i<aux;i++){
-                                printf("%d° professor..........%s",i+1,prof[i].nome);
-                                printf("CPF: %d\n",prof[i].cpf);
-                                printf("Titulação: %s",prof[i].titulacao);
+                                printf("%d° professor..........%s",i+1, prof[i].nome);
+                                printf("CPF: %d\n", prof[i].cpf);
+                                printf("Titulação: %s", prof[i].titulacao);
                             }
                             printf("\nQuem você quer cadastrar ágora?\n1_Professor\t2_Cliente\t3_Sair\n");
                             scanf("%d", &op);
@@ -87,7 +87,7 @@ int main(){
                             for( int i=0;i<aux;i++){
                                 printf("%d° Cliente..........%s",i+1,clie[i].nome);
                                 printf("Código: %d\n",clie[i].codigo);
-                                printf("Telefone: %d\n",clie[i].telefone);
+                                printf("Telefone: %d\n", clie[i].telefone);
                                 printf("E-mail: %s",clie[i].email);
                             }
                             printf("\nQuem você quer cadastrar ágora?\n1_Professor\t2_Cliente\t3_Sair\n");
