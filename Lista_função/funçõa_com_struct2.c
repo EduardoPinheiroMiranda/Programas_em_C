@@ -1,19 +1,19 @@
 /*
-1.Faï¿½a um programa que realize o cadastro de contas bancï¿½rias com as seguintes informaï¿½ï¿½es:
-a.Cï¿½digo do cliente;
+2.Faça um programa que realize o cadastro de contas bancárias com as seguintes informações:
+a.Código do cliente;
 b.Nome do cliente;
-c.Nï¿½mero da conta;
-d.Saldo bancï¿½rio.
+c.Número da conta;
+d.Saldo bancário.
 
-O banco permitirï¿½ o cadastramento de apenas DEZ
-contas e nï¿½o poderï¿½ haver mais que uma conta com
-o mesmo nï¿½mero.
-Menu de opï¿½ï¿½es:
+O banco permitira o cadastramento de apenas DEZ
+contas e não podera haver mais que uma conta com
+o mesmo número.
+Menu de opções:
 I.Cadastro de conta;
-II.Exibir na tela a conta cadastrada de acordo com ï¿½NDICE DO VETOR;
+II.Exibir na tela a conta cadastrada de acordo com NDICE DO VETOR;
 III.Exibir na tela a conta cadastrada de acordo com o
-Cï¿½DIGO DO CLIENTE informado;
-IV.Exibir na tela a conta cadastrada de acordo com o Nï¿½MERO DA CONTA do cliente informado;
+CÓDIGO DO CLIENTE informado;
+IV.Exibir na tela a conta cadastrada de acordo com o NMERO DA CONTA do cliente informado;
 V.Sair.
 */
 #include <stdio.h>
@@ -35,34 +35,34 @@ setlocale(LC_ALL, "portuguese");
         
         printf("\n\nCadastro de conta bancaria:\n\n");
         printf("\t1_Cadastra conta\n\t2_Exibir contas cadastradas\n");
-        printf("\t3_Exibir conta com cï¿½digo do cliente\n\t4_Exibir conta com nï¿½mero da conta do cliente\n\t5_Sair\n\n");
+        printf("\t3_Exibir conta com código do cliente\n\t4_Exibir conta com número da conta do cliente\n\t5_Sair\n\n");
         scanf("%d", &op);
             while(op!=5){
                 while(op>5||op<1){
-                    printf("\n\n[ERRO] Vocï¿½ digitou um valor invalido, tente outro\n\n");
+                    printf("\n\n[ERRO] Você digitou um valor invalido, tente outro\n\n");
                     printf("\t1_Cadastra conta\n\t2_Exibir contas cadastradas\n");
-                    printf("\t3_Exibir conta com cï¿½digo do cliente\n\t4_Exibir conta com nï¿½mero da conta do cliente\n\t5_Sair\n");
+                    printf("\t3_Exibir conta com código do cliente\n\t4_Exibir conta com número da conta do cliente\n\t5_Sair\n");
                     scanf("%d", &op);
                 }
                 if(op==1){
                     if(cad_bank[0].codigo==0){
                         for(int i=0; i<aux; i++){
-                            printf("\nQual o cï¿½digo do cliente ?\n");
+                            printf("\nQual o código do cliente ?\n");
                             scanf("%d", &cad_bank[i].codigo);
                                 for(int j=0;j<i;j++){
                                     while(cad_bank[j].codigo==cad_bank[i].codigo){
-                                        printf("\nEsse cï¿½digo jï¿½ estï¿½ em uso, digite um novo cï¿½digo\n");
+                                        printf("\nEsse código já está em uso, digite um novo código\n");
                                         scanf("%d", &cad_bank[i].codigo);
                                     }
                                 }
                             printf("Qual o nome do cliente ?\n");
                             fflush(stdin);
                             fgets(cad_bank[i].nome,40,stdin);
-                            printf("Qual o nï¿½mero da conta do cliente ?\n");
+                            printf("Qual o número da conta do cliente ?\n");
                             scanf("%d",&cad_bank[i].conta);
                                 for(int j=0;j<i;j++){
                                     while(cad_bank[j].conta==cad_bank[i].conta){
-                                        printf("\nEssa conta jï¿½ existe, digite uma conta nova valida\n");
+                                        printf("\nEssa conta já existe, digite uma conta nova valida\n");
                                         scanf("%d", &cad_bank[i].conta);
                                     }
                                 }
@@ -71,17 +71,17 @@ setlocale(LC_ALL, "portuguese");
                         }
                         printf("Cadastro concluido\n");
                     }else{
-                        printf("Vocï¿½ ja possui o limite de cadastros.\nVocï¿½ quer cadastrar uma nova lista de clientes?");
-                        printf("\n\t1_sim\t2_Nï¿½o\n\n");
+                        printf("Você ja possui o limite de cadastros.\nVocê quer cadastrar uma nova lista de clientes?");
+                        printf("\n\t1_sim\t2_Não\n\n");
                         scanf("%d", &op);
                         if(op==1){
                             for(int i=0; i<aux; i++){
-                                printf("Qual o cï¿½digo do cliente ?\n");
+                                printf("Qual o código do cliente ?\n");
                                 scanf("%d", &cad_bank[i].codigo);
                                 printf("Qual o nome do cliente ?\n");
                                 fflush(stdin);
                                 fgets(cad_bank[i].nome,40,stdin);
-                                printf("Qual o nï¿½mero da conta do cliente ?\n");
+                                printf("Qual o número da conta do cliente ?\n");
                                 scanf("%d",&cad_bank[i].conta);
                                 printf("Qual o saldo bancario do cliente ?\n");
                                 scanf("%d", &cad_bank[i].saldo);
@@ -100,13 +100,13 @@ setlocale(LC_ALL, "portuguese");
                             printf("%d\n", cad_bank[i].saldo);
                             printf("\n");
                         }    
-                    }else{printf("Ainda nï¿½o foram cadastradas contas bancarias.\nCadastre alguma para ser exibida.\n\n");}
+                    }else{printf("Ainda não foram cadastradas contas bancarias.\nCadastre alguma para ser exibida.\n\n");}
                     
                 }
                 if(op==3){
                     int cont;
                         if(cad_bank[0].codigo!=0){
-                            printf("Qual o cï¿½digo do cliente?\n");
+                            printf("Qual o código do cliente?\n");
                             scanf("%d", &op);
                             for(int i=0;i<aux;i++){
                                 if(cad_bank[i].codigo==op){
@@ -117,15 +117,15 @@ setlocale(LC_ALL, "portuguese");
                                 }
                                 if(cad_bank[i].codigo!=op){cont++;}
                             }
-                            if(cont==aux){printf("\nEssa conta nï¿½o existe, verifique o cï¿½digo se estï¿½ correto.\n\n");}
-                    }else{printf("Ainda nï¿½o foram cadastradas contas bancarias.\nCadastre alguma para ser exibida.\n\n");}
+                            if(cont==aux){printf("\nEssa conta não existe, verifique o código se está correto.\n\n");}
+                    }else{printf("Ainda não foram cadastradas contas bancarias.\nCadastre alguma para ser exibida.\n\n");}
                     
 
                 }
                 if(op==4){
                     int cont;
                     if(cad_bank[0].codigo!=0){
-                        printf("Qual o nï¿½mero da conta do cliente?\n");
+                        printf("Qual o número da conta do cliente?\n");
                         scanf("%d", &op);
                         for(int i=0;i<aux;i++){
                             if(cad_bank[i].conta==op){
@@ -136,11 +136,11 @@ setlocale(LC_ALL, "portuguese");
                             }
                             if(cad_bank[i].conta!=op){cont++;}
                         }
-                        if(cont==aux){printf("\nEssa conta nï¿½o existe, verifique se o nï¿½mero da conta estï¿½ correto.\n\n");}   
-                    }else{printf("Ainda nï¿½o foram cadastradas contas bancarias.\nCadastre alguma para ser exibida.\n\n");}
+                        if(cont==aux){printf("\nEssa conta não existe, verifique se o número da conta está correto.\n\n");}   
+                    }else{printf("Ainda não foram cadastradas contas bancarias.\nCadastre alguma para ser exibida.\n\n");}
                 }
                 printf("\n\t1_Cadastra conta\n\t2_Exibir contas cadastradas\n");
-                printf("\t3_Exibir conta com cï¿½digo do cliente\n\t4_Exibir conta com nï¿½mero da conta do cliente\n\t5_Sair\n\n");
+                printf("\t3_Exibir conta com código do cliente\n\t4_Exibir conta com número da conta do cliente\n\t5_Sair\n\n");
                 scanf("%d", &op);
             }    
 }
