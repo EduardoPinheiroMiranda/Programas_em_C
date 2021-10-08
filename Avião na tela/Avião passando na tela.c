@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<locale.h>    
 
-int main(){
+int mov(char b[30]){
         char vet[50];
         int i,j,k;
 
@@ -19,26 +19,21 @@ int main(){
             for(j=0;j<50;j++){ 
                 printf("%c", vet[j]);
                 if(i==j){
-                    printf("__________________\n");
+                    printf("%s",b);
                 }
-            }
-            for(int j=0;j<50;j++){ 
-                printf("%c", vet[j]);
-                if(i==j){
-                    printf("\n    ____||____\n");
-                }
-            }
-            
-                
-                
-            
+            }  
             system("cls");
         
-            /*if(i==49){
+            if(i==49){
                 i=0;
                 for(k=0;k<50;k++){ vet[k]=' '; }
-            }*/
+            }
         }
+}
+
+int main(){
+    char a[30]= {'_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_'};
+    mov(a);
 }
 /*
             __________________\n
