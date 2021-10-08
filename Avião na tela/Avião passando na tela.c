@@ -22,10 +22,10 @@ int main(){
                     printf("__________________\n");
                 }
             }
-            for(j=0;j<50;j++){ 
+            for(int j=0;j<50;j++){ 
                 printf("%c", vet[j]);
                 if(i==j){
-                    printf("    ____||____\n");
+                    printf("\n    ____||____\n");
                 }
             }
             
