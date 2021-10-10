@@ -1,39 +1,34 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<locale.h>    
+#define tam 50
+void main(){
+setlocale(LC_ALL,"portuguese");
+    char aviao[6][tam];
+    int i,j;
+        for(i=0;i<6;i++){
+            for(j=0;j<tam;j++){
+                
+               if(i==0 &&j<17){
+                   aviao[i][j]='_';
+               }else{aviao[i][j]=' ';}
+                
+               if(i==1&&j>3&&j<8) { aviao[i][j]='_'; }
+                
+               if(i==1&&j>7&&j<10) { aviao[i][j]='|'; }
 
-int mov(char b[30]){
-        char vet[50];
-        int i,j,k;
-
-        for(i=0;i<50;i++){ vet[i]=' '; }
-        
-        for(i=0;i<50;i++){
-            if(i<4){ 
-                vet[i]='-'; 
-            }
-            if(i>3){ 
-                vet[i]='-'; 
-                vet[i-4]=' '; 
-            }
-            for(j=0;j<50;j++){ 
-                printf("%c", vet[j]);
-                if(i==j){
-                    printf("%s",b);
-                }
-            }  
-            system("cls");
-        
-            if(i==49){
-                i=0;
-                for(k=0;k<50;k++){ vet[k]=' '; }
+               if(i==1&&j>9&&j<14){  aviao[i][j]='_';}
+               
+               if(i==2&&j==5||j)  {aviao[i][j]='|'; }
             }
         }
-}
 
-int main(){
-    char a[30]= {'_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_'};
-    mov(a);
+        for(i=0;i<6;i++){
+            for(j=0;j<tam;j++){
+                printf("%c", aviao[i][j]);
+            }
+            printf("\n");
+        }
 }
 /*
             __________________\n
