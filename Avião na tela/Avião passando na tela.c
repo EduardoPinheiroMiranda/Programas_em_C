@@ -9,17 +9,26 @@ setlocale(LC_ALL,"portuguese");
         for(i=0;i<6;i++){
             for(j=0;j<tam;j++){
                 
-               if(i==0 &&j<17){
-                   aviao[i][j]='_';
-               }else{aviao[i][j]=' ';}
+                if(i==0 &&j>3&&j<21){
+                    aviao[i][j]='_';
+                }else{aviao[i][j]=' ';}
                 
-               if(i==1&&j>3&&j<8) { aviao[i][j]='_'; }
-                
-               if(i==1&&j>7&&j<10) { aviao[i][j]='|'; }
-
-               if(i==1&&j>9&&j<14){  aviao[i][j]='_';}
-               
-               if(i==2&&j==5||j)  {aviao[i][j]='|'; }
+                if(i==1&&j>7&&j<12) {  aviao[i][j]='_'; }
+                if(i==1&&j>11&&j<14){  aviao[i][j]='|'; }
+                if(i==1&&j>13&&j<18){  aviao[i][j]='_';}
+                if(i==2&&j==7)      {  aviao[i][j]='|'; }
+                if(i==2&&j==18)     {  aviao[i][j]='|'; }
+                if(i==3&&j<2)       {  aviao[i][j]='--'; }
+                if(i==3&&j>1&&j<8)  {  aviao[i][j]='='; }
+                if(i==3&&j==7)      {  aviao[i][j]='|'; }
+                if(i==3&&j>7&&j<18) {  aviao[i][j]='_'; }
+                if(i==3&&j==18)     {  aviao[i][j]='|'; }
+                if(i==4&&j>7&&j<12) {  aviao[i][j]='_'; }
+                if(i==4&&j==11)     {  aviao[i][j]='|'; }
+                if(i==4&&j>11&&j<14){  aviao[i][j]='_'; }
+                if(i==4&&j==14)     {  aviao[i][j]='|'; }
+                if(i==4&&j>14&&j<18){  aviao[i][j]='__'; }
+                if(i==4&&j==19)     {  aviao[i][j]='/'; }
             }
         }
 
