@@ -1,16 +1,39 @@
 #include <stdio.h>
 #include<stdlib.h>
-#include<locale.h>    
 #define tam 100
 
+char mover_aviao(char mover_parte[], int x){
+    char nova_parte[tam];
+    int i;
+    for(i=x;i<x+1;i++){
+        if(i==0){
+            nova_parte[i]=mover_parte[tam-1];
+        }
+        nova_parte[i+1]=mover_parte[i];
+        printf("%c", nova_parte[i]);
+        return nova_parte[i];
+    }
+}
+
+char atualizando(char parte_aviao[]){
+    int i;
+        for(i=0;i<tam;i++){
+            parte_aviao[i]=mover_aviao(parte_aviao, i);
+        }
+        printf("\n");
+        return parte_aviao;
+
+}
+
 int main(){
-    int i,j;    
+    int i,a=1;
+    char aux[tam];
     char elise[tam]={' ',' ',' ',' ','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_'};
     char motor[tam]={' ',' ',' ',' ',' ',' ',' ',' ','_','_','_','_','_','|','|','_','_','_','_',' ',' ',' ',' ',' '};
     char cima[tam] ={' ',' ',' ',' ',' ',' ',' ',' ','|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|',' ',' ',' ',' ',' '};
     char baixo[tam]={'-','-','=','=','=','=','=','=','|','_','_','_','_','_','_','_','_','_','|',' ',' ',' ',' ',' '};
     char pe[tam]   ={' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','_','_','_','|','_','_','|','_','_','/',' ',' ',' ',' '};
-        //printf("%s\n%s\n%s\n%s\n%s\n\n",elise, motor, cima, baixo, pe); 
+
 
         for(i=24;i<tam;i++){
             elise[i]=' ';
@@ -18,54 +41,18 @@ int main(){
             cima[i]=' ';
             baixo[i]=' ';
             pe[i]=' ';
-                if(i==tam-1){
-                    elise[i]=';';
-                    motor[i]=';';
-                    cima[i]=';';
-                    baixo[i]=';';
-                    pe[i]=';';
-                }
-
         }
 
-
-
-
-        for(i=0;i<tam;i++){
-            printf("%c",elise[i]);
-        }printf("\n");
-        for(i=0;i<tam;i++){
-            printf("%c",motor[i]);
-        }printf("\n");
-        for(i=0;i<tam;i++){
-            printf("%c",cima[i]);
-        }printf("\n");
-        for(i=0;i<tam;i++){
-            printf("%c",baixo[i]);
-        }printf("\n");
-        for(i=0;i<tam;i++){
-            printf("%c",pe[i]);
-        }printf("\n");
-        //system("cls");
-        //printf("%s\n%s\n%s\n%s\n%s\n", elise,motor,cima,baixo,pe);
-
-
-
-
+    while(a!=0){
+        atualizando(elise);
+        atualizando(motor);
+        atualizando(cima);
+        atualizando(baixo);
+        atualizando(pe);
+        system("cls");
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
