@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <locale.h>
 
 typedef struct No{
@@ -10,50 +11,55 @@ typedef struct No{
 }No;
 
 typedef struct{
-	No *inicio;
+    No *inicio;
 }Lista;
 
-void inserir_valor(Lista *lista, int cod, char nome[],char turno[]){
-	No *valor;	
-	valor = (No*)malloc(sizeof(No));
-	valor->cod = cod;
-	valor->nome[30] = nome;
-	valor->turno[20] = turno;
-	valor->proximo = lista->inicio ;
-	lista->inicio = valor;
+void inserir_valor(Lista *lista, int cod, char nome[], char turno[]){	
+    No *no ,*valor = (No*)malloc(sizeof(No));
+    valor->cod = cod;
+	strcpy(valor->nome, nome);
+	strcpy(valor->turno, turno);
+
+        if(lista->inicio==NULL){
+            lista->inicio=valor;
+        }else{
+                no = lista->inicio;
+                while(no->proximo != NULL)
+                    no = no->proximo;
+                no->proximo = valor;
+        }
+            
 }
+
 void imprimir(Lista *lista){
     No *inicio = lista->inicio;
-		int i;
-			for(i=inicio;i!=NULL;i=inicio->proximo){
+			while(inicio!=NULL){
 				printf("%d\n", inicio->cod);
-				puts(inicio ->nome[30]);
-				puts(inicio ->turno[20]);
+                printf("%s",inicio->nome);
+				printf("%s\n", inicio ->turno);
+                inicio = inicio->proximo;
 			}
-        		
-        //inicio = inicio->proximo;
     
     printf("\n\n");
-    return;
+   
 }
 
 int main (){
 setlocale(LC_ALL, "portuguese");
     Lista lista;
-        lista.inicio = NULL;
-        
+    lista.inicio = NULL;
+
         int op,cod;
         char nome[30], turno[20];
         
-            
             do{
-            printf("\n\n1_Adissionar Curso\n2_Imprimir\n5_Sair\n\nO que vocÃª quer fazer?... ");
+            printf("\n1_Adissionar Curso\n2_Imprimir\n5_Sair\n\nO que você quer fazer?... ");
             scanf("%d", &op);
             
                 switch(op){
                     case 1:
 						printf("--------------------------");
-                        printf("\n\nCÃ³digo do curso... ");
+                        printf("\n\nCódigo do curso... ");
                         scanf("%d",&cod);
                         printf("Nome do curso... ");
                         fflush(stdin);
@@ -62,8 +68,9 @@ setlocale(LC_ALL, "portuguese");
                         fflush(stdin);
                         fgets(turno,20,stdin);
 						printf("\n--------------------------");
+                        inserir_valor(&lista,cod,nome,turno);
                         
-                        inserir_valor(&lista, cod, nome, turno);
+
                         break;
                     case 2:
                         imprimir(&lista);
