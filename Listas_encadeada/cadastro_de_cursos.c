@@ -27,18 +27,47 @@ void inserir_valor(Lista *lista, int cod, char nome[], char turno[]){
                 while(no->proximo != NULL)
                     no = no->proximo;
                 no->proximo = valor;
-        }
-            
+        }       
 }
+
+
+void excluir_valor(Lista *lista, int cod){
+    No *inicio = lista->inicio;
+    No *excluir = NULL;
+    if(inicio != NULL && lista->inicio->cod == cod){
+        excluir = lista->inicio;
+        lista->inicio = excluir->proximo;
+    }else{
+        while(inicio != NULL && inicio->proximo != NULL && inicio->proximo->cod != cod){
+            inicio = inicio->proximo;
+        }
+        if(inicio != NULL && inicio->proximo != NULL){
+            excluir = inicio->proximo;
+            inicio->proximo = excluir->proximo; 
+        }
+    }
+    if(excluir != NULL){
+        free(excluir);
+    }
+}
+
+
+
+
+
 
 void imprimir(Lista *lista){
     No *inicio = lista->inicio;
+                printf("------------------------------------------------------\n");
+                printf("                       cursos                         \n");
+                printf("------------------------------------------------------\n");
 			while(inicio!=NULL){
-				printf("%d\n", inicio->cod);
-                printf("%s",inicio->nome);
+				printf("%d\t", inicio->cod);
+                printf("%s\t",inicio->nome);
 				printf("%s\n", inicio ->turno);
                 inicio = inicio->proximo;
 			}
+                printf("------------------------------------------------------\n");
     
     printf("\n\n");
    
@@ -53,7 +82,10 @@ setlocale(LC_ALL, "portuguese");
         char nome[30], turno[20];
         
             do{
-            printf("\n1_Adissionar Curso\n2_Imprimir\n5_Sair\n\nO que você quer fazer?... ");
+            //1
+            printf("------------------------------\n");
+            printf("\t1_Adissionar Curso\n\t2_Imprimir\n\t3_Excluir curso\n\t5_Sair\n");
+            printf("------------------------------\nO que você quer fazer?... ");
             scanf("%d", &op);
             
                 switch(op){
@@ -69,12 +101,14 @@ setlocale(LC_ALL, "portuguese");
                         fgets(turno,20,stdin);
 						printf("\n--------------------------");
                         inserir_valor(&lista,cod,nome,turno);
-                        
-
                         break;
                     case 2:
                         imprimir(&lista);
                         break;
+                    case 3:
+                        printf("Qual o código do curso que você quer excluir?\n");
+                        scanf("%d", &cod);
+                        excluir_valor(&lista, cod);
                 }
                 
             }while(op!=5);
