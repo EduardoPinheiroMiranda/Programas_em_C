@@ -5,43 +5,6 @@
 #include <math.h>
 #define aux 5000
 
-void organizar(int separar){//vai receber um valor do vetor que estara guardando os valores do arquivo e desmembrar o valor
-    int num, numer[20], controle=2, j=0, x=1;
-    char valor_ordenar[20];
-
-        sprintf(valor_ordenar,"%d", separar);//converte valores inteiros em strings
-        num = strlen(valor_ordenar)-1;
-        int pot=pow(10,num);
-
-            while(x){
-                if(separar-pot<pow(10,num)){
-                    numer[j]=separar/pow(10,num);
-                    separar = separar-pot;
-                    num = num-1;
-                    pot = pow(10,num);
-                    controle=2;
-                    j++;
-                }else{
-                    pot = pow(10,num);
-                    pot = pot*controle;
-                    controle++;
-                }
-                if(j==strlen(valor_ordenar)){x=0;}
-            }
-
-}
-/*
-
-int metodo_bolha(int vet[]){
-    int temp,i, j, auxiliar;
-    int veterinario;
-    for(i=0;i<aux;i++){
-        auxiliar = vet[i];
-
-    }
-}
-
-
 int ler_arquivo(int vet[]){
     FILE *arq;
     int x, i;
@@ -58,13 +21,70 @@ int ler_arquivo(int vet[]){
                 printf("Erro com o arquivo");
             }
     return vet;
+}
+/*
+void organizar(int separar){
+    char numeros[7];
+        sprintf(numeros, "%d", separar);
+    return 
+
 }*/
 
-int main(){
-    int vet[aux];
-        ler_arquivo(vet);
+void metodo_bolha(int vet[]){
+    int j, i, x, cont, tempo[2];
+    char num_string[6], temp;//vai receber os valores inteiros convertidos para strings.
+    time_t ini, fim, start, end;
 
-        int teste = 654321;
-        organizar(teste);
+    time(&ini);
+    for(x=0; x<aux; x++){
+        sprintf(num_string, "%d", vet[x]);
+        cont = strlen(num_string);
+        printf ("%d\n", cont);
+         
+            for(i=0; i<cont; i++){
+                for(j=0;j<cont;j++){
+                    if(num_string[j]>num_string[j+1]){
+                        temp = num_string[j];
+                        num_string[j] = num_string[j+1];
+                        num_string[j+1]=temp;
+                    }
+                }
+            } 
+    }
+    time(&fim);
+    time(&start);
+    for(x=0; x<aux; x++){
+        sprintf(num_string, "%d", vet[x]);
+        cont = strlen(num_string);
+        printf ("%d\n", cont);
+         
+            for(i=0; i<cont; i++){
+                for(j=0;j<cont;j++){
+                    if(num_string[j]>num_string[j+1]){
+                        temp = num_string[j];
+                        num_string[j] = num_string[j+1];
+                        num_string[j+1]=temp;
+                    }
+                }
+            } 
+    }
+    time(&end);
+    tempo[0]=fim-ini;
+    tempo[1]=end-start;
+
+    return tempo;
+
+}
+
+int main(){
+    int vet[aux], tempo;
+    vet[aux]=ler_arquivo(vet);
+    metodo_bolha(vet);
+    
+
+
+
+
+
 
 }

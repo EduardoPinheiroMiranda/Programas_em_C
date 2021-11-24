@@ -85,13 +85,13 @@ setlocale(LC_ALL, "portuguese");
             //1
             printf("------------------------------\n");
             printf("\t1_Adissionar Curso\n\t2_Imprimir\n\t3_Excluir curso\n\t5_Sair\n");
-            printf("------------------------------\nO que você quer fazer?... ");
+            printf("------------------------------\nO que vocÃª quer fazer?... ");
             scanf("%d", &op);
             
                 switch(op){
                     case 1:
 						printf("--------------------------");
-                        printf("\n\nCódigo do curso... ");
+                        printf("\n\nCÃ³digo do curso... ");
                         scanf("%d",&cod);
                         printf("Nome do curso... ");
                         fflush(stdin);
@@ -106,7 +106,7 @@ setlocale(LC_ALL, "portuguese");
                         imprimir(&lista);
                         break;
                     case 3:
-                        printf("Qual o código do curso que você quer excluir?\n");
+                        printf("Qual o cÃ³digo do curso que vocÃª quer excluir?\n");
                         scanf("%d", &cod);
                         excluir_valor(&lista, cod);
                 }
