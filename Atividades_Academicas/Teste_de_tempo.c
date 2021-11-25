@@ -113,6 +113,31 @@ int metodo_selecao_500(int vet[]){
     return 0;
 }
 
+int metodo_insercao_5000(int vet[]){
+    int j, i, x, cont;
+    char num_string[6], temp;// num_string[6] vai receber os valores inteiros convertidos para strings.
+    
+    for(int k=0; k<aux; k++){
+        sprintf(num_string, "%d", vet[k]);
+        cont = strlen(num_string);
+            for(int k=0; k<5; k++){
+                sprintf(num_string, "%d", vet[k]);
+                cont = strlen(num_string);
+        
+                for(j=1; j<cont; j++) {
+                    temp = num_string[j];
+                    i = j-1;
+            
+                    while(i>=0 && num_string[i]>temp) {
+                        num_string[i+1] = num_string[i];
+                        i--;
+                    }
+                    num_string[i+1] = temp;
+                }
+            }
+    }
+    return 0;
+}
 
 int main(){
     int vet[aux];
@@ -120,7 +145,7 @@ int main(){
     vet[aux]=ler_arquivo(vet);
     
     BOBO = clock();
-    metodo_selecao_5000(vet);
+    metodo_insercao_5000(vet);
     BOBO = clock() - BOBO;
     //tempo_sel[2] = metodo_selecao(vet);
 
