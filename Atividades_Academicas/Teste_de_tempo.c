@@ -233,6 +233,67 @@ int metodo_shellsort_500(int vet[]){
     return 0;
 }
 
+char heapSort(char num[], int n) {
+   int i = n/2, pai, filho;
+   char t;
+   while(1) {
+      if (i > 0) {
+          i--;
+          t = num[i];
+      } else {
+          n--;
+          if (n == 0)
+             return 0;
+          t = num[n];
+          num[n] = num[0];
+      }
+      pai = i;
+      filho = i*2 + 1;
+      while (filho < n) {
+          if ((filho + 1 < n)  &&  (num[filho + 1] > num[filho]))
+              filho++;
+          if (num[filho] > t) {
+             num[pai] = num[filho];
+             pai = filho;
+             filho = pai*2 + 1;
+          }else
+             break;
+      }
+      num[pai] = t;
+   }
+ 
+}
+
+int metodo_heapsort_5000(int vet[]){
+    int j, i,cont;
+    char num_string[6], temp;//vai receber os valores inteiros convertidos para strings.
+    
+    for(int k=0; k<aux; k++){
+        sprintf(num_string, "%d", vet[k]);
+        cont = strlen(num_string);
+            heapSort(num_string, cont);
+            printf("%s", num_string);
+            printf("\n");
+    }
+        
+    return 0;
+}
+
+int metodo_heapsort_500(int vet[]){
+    int j, i,cont;
+    char num_string[6], temp;//vai receber os valores inteiros convertidos para strings.
+    
+    for(int k=0; k<500; k++){
+        sprintf(num_string, "%d", vet[k]);
+        cont = strlen(num_string);
+            heapSort(num_string, cont);
+            printf("%s", num_string);
+            printf("\n");
+    }
+        
+    return 0;
+}
+
 
 int main(){
     int vet[aux];
